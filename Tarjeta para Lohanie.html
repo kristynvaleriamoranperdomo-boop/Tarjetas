@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy birthday Lohanie</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%;font-family:'Cormorant Garamond',serif}
+body{
+  background:linear-gradient(135deg,#fde7ef,#f9dce8,#fff1f5);
+  color:#5d3c4b;
+  overflow-x:hidden;
+}
+body:before,body:after{
+  content:"♡";
+  position:fixed;
+  font-size:110px;
+  color:rgba(255,255,255,.45);
+  z-index:-1;
+}
+body:before{top:3%;left:2%;transform:rotate(-15deg)}
+body:after{bottom:3%;right:2%;transform:rotate(15deg)}
+
+header{text-align:center;padding:25px 15px 5px}
+header .mini{font-family:'Montserrat',sans-serif;letter-spacing:4px;font-size:11px;text-transform:uppercase;color:#9c6c7d}
+header h1{font-family:'Great Vibes',cursive;font-size:42px;margin:4px 0;color:#8d536b}
+
+.book{
+  width:min(900px,94vw);
+  margin:10px auto 18px;
+}
+.page{
+  display:none;
+  min-height:650px;
+  background:rgba(255,250,252,.97);
+  border:1px solid rgba(161,102,124,.22);
+  border-radius:8px;
+  box-shadow:0 18px 45px rgba(120,65,88,.18),inset 0 0 45px rgba(207,151,171,.08);
+  padding:42px;
+  position:relative;
+  overflow:hidden;
+}
+.page.active{display:flex;animation:turn .45s ease}
+@keyframes turn{from{opacity:.15;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+.page:before{
+  content:"";
+  position:absolute;inset:13px;
+  border:1px solid rgba(170,110,130,.15);
+  pointer-events:none;
+}
+.inner{width:100%;position:relative;z-index:1}
+
+h2{
+  font-family:'Great Vibes',cursive;
+  color:#8d536b;
+  font-size:45px;
+  font-weight:400;
+  text-align:center;
+  margin:0 0 16px;
+}
+.subtitle{text-align:center;font-style:italic;font-size:19px;margin:0 auto 25px;max-width:650px;line-height:1.45}
+.text{font-size:20px;line-height:1.55;text-align:center;max-width:700px;margin:15px auto}
+.small{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a06d7e}
+
+.photo{
+  width:100%;height:280px;object-fit:cover;
+  border-radius:5px;
+  background:linear-gradient(135deg,#f4d5e1,#fff7fa);
+  border:8px solid white;
+  box-shadow:0 8px 20px rgba(100,50,70,.16);
+}
+.photo.round{width:190px;height:190px;border-radius:50%;display:block;margin:0 auto}
+.caption{text-align:center;font-style:italic;font-size:17px;margin-top:10px}
+
+.cover{align-items:center;justify-content:center;text-align:center;min-height:650px}
+.cover .inner{display:flex;flex-direction:column;align-items:center}
+.cover h2{font-size:70px;margin:15px 0}
+.cover .cover-photo{width:min(430px,82%);height:300px;object-fit:cover;border-radius:4px;border:10px solid white;box-shadow:0 12px 30px rgba(100,50,70,.22)}
+.cover .date{font-size:21px;margin-top:18px;font-style:italic}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:center;
+}
+.polaroid{
+  background:white;padding:10px 10px 24px;
+  box-shadow:0 9px 20px rgba(80,40,60,.14);
+  transform:rotate(-2deg);
+}
+.polaroid:nth-child(2){transform:rotate(2deg)}
+.polaroid img{height:260px;border:0;box-shadow:none}
+.polaroid p{text-align:center;margin:8px 0 0;font-size:17px;font-style:italic}
+
+.road-wrap{
+  position:relative;
+  min-height:455px;
+  margin:20px auto 0;
+  border-radius:20px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#d9edf3 0 36%,#b8d59c 36% 100%);
+  border:8px solid white;
+  box-shadow:0 8px 22px rgba(70,50,50,.14);
+}
+.road{
+  position:absolute;
+  width:150px;
+  height:120%;
+  background:#555;
+  left:50%;top:-10%;
+  transform:translateX(-50%) rotate(5deg);
+}
+.road:after{
+  content:"";
+  position:absolute;left:50%;top:0;bottom:0;width:7px;
+  transform:translateX(-50%);
+  background:repeating-linear-gradient(to bottom,#fff 0 35px,transparent 35px 65px);
+}
+.road-photo{
+  position:absolute;width:112px;height:85px;object-fit:cover;
+  background:#f5dbe5;border:6px solid white;
+  box-shadow:0 6px 14px rgba(60,30,45,.25);
+  z-index:2;
+}
+.r1{left:8%;top:10%;transform:rotate(-8deg)}
+.r2{right:7%;top:27%;transform:rotate(7deg)}
+.r3{left:7%;top:51%;transform:rotate(7deg)}
+.r4{right:8%;top:70%;transform:rotate(-7deg)}
+.milestone{
+  position:absolute;z-index:3;left:50%;transform:translateX(-50%);
+  background:white;border:3px solid #d39aae;border-radius:50%;
+  width:65px;height:65px;display:flex;align-items:center;justify-content:center;
+  text-align:center;font-size:14px;font-weight:bold;
+}
+.m1{top:8%}.m2{top:34%}.m3{top:59%}.m4{top:84%}
+
+.big-photo{height:390px}
+.playlist-head{
+  display:grid;grid-template-columns:170px 1fr;gap:25px;align-items:center;
+  margin-bottom:20px;
+}
+.album{width:170px;height:170px;object-fit:cover;border:7px solid white;box-shadow:0 8px 18px rgba(70,30,50,.18)}
+.playlist-intro h3{font-family:'Great Vibes';font-size:36px;font-weight:400;margin:0;color:#8d536b}
+.playlist-intro p{font-size:17px;margin:7px 0}
+.songs{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.song{
+  display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;
+  background:#fff7fa;border:1px solid #efd3de;border-radius:8px;padding:9px;
+}
+.song img{width:70px;height:70px;object-fit:cover;border-radius:4px}
+.song strong{display:block;font-size:18px}
+.song span{font-family:'Montserrat',sans-serif;font-size:10px;color:#997080}
+.duration{font-family:'Montserrat',sans-serif;font-size:10px}
+
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px
+}
+.card{
+  background:linear-gradient(145deg,#fff,#fff5f8);
+  border:1px solid #efd5df;border-radius:12px;padding:17px;text-align:center;
+  min-height:115px;box-shadow:0 5px 13px rgba(90,40,60,.08)
+}
+.card b{display:block;font-family:'Great Vibes';font-size:27px;color:#a4637b;font-weight:400;margin-bottom:5px}
+.card p{margin:0;font-size:16px;line-height:1.3}
+
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.gallery img{height:230px}
+
+.numbered{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.numbered .card{min-height:105px}
+.num{
+  font-family:'Great Vibes';font-size:30px;color:#b16c84
+}
+
+.final{text-align:center;align-items:center;justify-content:center}
+.final h2{font-size:64px}
+.final .final-photo{width:min(380px,75%);height:280px;object-fit:cover;border:10px solid white;box-shadow:0 12px 28px rgba(80,40,60,.2)}
+.final p{font-size:21px;line-height:1.55;max-width:650px;margin:22px auto}
+
+.nav{
+  width:min(900px,94vw);margin:0 auto 25px;
+  display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;
+}
+button{
+  border:0;background:#9a5d74;color:white;
+  padding:12px 22px;border-radius:30px;
+  font-family:'Montserrat',sans-serif;font-size:12px;
+  cursor:pointer;box-shadow:0 5px 12px rgba(90,40,60,.15);
+}
+button:hover{background:#824b61}
+button:disabled{opacity:.4;cursor:not-allowed}
+.counter{font-family:'Montserrat',sans-serif;font-size:12px;color:#8c6170;min-width:55px;text-align:center}
+
+@media(max-width:650px){
+  header{padding-top:15px}
+  header h1{font-size:34px}
+  .book{width:96vw}
+  .page{padding:28px 20px;min-height:650px}
+  .page:before{inset:8px}
+  h2{font-size:38px}
+  .cover h2{font-size:52px}
+  .cover .cover-photo{height:235px;width:90%}
+  .two,.playlist-head{grid-template-columns:1fr}
+  .polaroid img{height:210px}
+  .big-photo{height:300px}
+  .road-wrap{min-height:440px}
+  .road-photo{width:91px;height:72px}
+  .songs{grid-template-columns:1fr}
+  .cards,.numbered{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery img{height:165px}
+  .text{font-size:18px}
+  .subtitle{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="mini">Un pequeño libro hecho con mucho cariño</div>
+  <h1>Para Lohanie ♡</h1>
+</header>
+
+<main class="book">
+
+<!-- PÁGINA 1 -->
+<section class="page cover active">
+<div class="inner">
+  <div class="small">Una historia de amistad</div>
+  <img class="cover-photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 7.08.28 PM (1).jpeg" alt="Foto de portada">
+  <h2>Happy birthday Lohanie</h2>
+  <p class="date">Un nuevo capítulo comienza hoy ✨</p>
+</div>
+</section>
+
+<!-- PÁGINA 2 -->
+<section class="page">
+<div class="inner">
+  <h2>Una amistad muy especial</h2>
+  <p class="subtitle">Hay personas que llegan a nuestra vida y, sin darnos cuenta, terminan convirtiéndose en parte de nuestra historia.</p>
+  <img class="photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 7.08.28 PM.jpeg" alt="Foto de nuestra amistad">
+  <p class="text">Nuestra amistad es de esas que se construyen con risas, conversaciones, recuerdos, pequeños detalles y momentos que con el tiempo se vuelven inolvidables.</p>
+  <p class="text">Gracias por estar, por compartir tantos momentos y por ser una persona tan especial para mí. ♡</p>
+</div>
+</section>
+
+<!-- PÁGINA 3 -->
+<section class="page">
+<div class="inner">
+  <h2>Nuestros primeros recuerdos</h2>
+  <p class="subtitle">Todo comenzó con momentos que quizá parecían pequeños, pero que terminaron significando muchísimo.</p>
+  <div class="two">
+    <div class="polaroid">
+      <img class="photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.20 PM.jpeg" alt="Primer recuerdo">
+      <p>Un recuerdo que siempre guardaré.</p>
+    </div>
+    <div class="polaroid">
+      <img class="photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.26 PM (3).jpeg" alt="Otro recuerdo">
+      <p>De esos momentos que dan ganas de volver a vivir.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PÁGINA 4 -->
+<section class="page">
+<div class="inner">
+  <h2>Nuestra historia</h2>
+  <p class="subtitle">Un camino lleno de recuerdos, desde 2023 hasta hoy. 🚗♡</p>
+  <div class="road-wrap">
+    <div class="road"></div>
+    <img class="road-photo r1" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.22 PM (3).jpeg" alt="Recuerdo 2025">
+    <img class="road-photo r2" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.23 PM (3).jpeg" alt="Recuerdo">
+    <img class="road-photo r3" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.27 PM.jpeg" alt="Recuerdo">
+    <img class="road-photo r4" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 7.54.21 PM.jpeg" alt="Recuerdo 2026">
+    <div class="milestone m1">2025</div>
+    <div class="milestone m2">♡</div>
+    <div class="milestone m3">Juntas</div>
+    <div class="milestone m4">2026</div>
+  </div>
+</div>
+</section>
+
+<!-- PÁGINA 5 -->
+<section class="page">
+<div class="inner">
+  <h2>Momentos que guardo</h2>
+  <p class="subtitle">Porque una amistad también se cuenta con fotografías.</p>
+  <img class="photo big-photo" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.24 PM.jpeg" alt="Momento especial">
+  <p class="text">Cada fotografía tiene una historia detrás, una risa, una conversación o simplemente un instante que vale la pena conservar.</p>
+</div>
+</section>
+
+<!-- PÁGINA 6 -->
+<section class="page">
+<div class="inner">
+  <h2>Nuestra playlist</h2>
+  <div class="playlist-head">
+    <img class="album" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.21 PM (3).jpeg" alt="Portada de playlist">
+    <div class="playlist-intro">
+      <h3>Momentos que tienen Musica</h3>
+      <p>Cuatro canciones para acompañar nuestros recuerdos.</p>
+      <div class="small">♡ PLAYLIST DE AMISTAD ♡</div>
+    </div>
+  </div>
+
+  <div class="songs">
+    <div class="song">
+      <img src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 8.13.23 PM (1).jpeg" alt="Canción 1">
+      <div><strong>Canción favorita</strong><span>Una canción para recordar</span></div>
+      <div class="duration">3:45</div>
+    </div>
+    <div class="song">
+      <img src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 8.13.22 PM.jpeg" alt="Canción 2">
+      <div><strong>Nuestro momento</strong><span>Para cantar juntas</span></div>
+      <div class="duration">3:20</div>
+    </div>
+    <div class="song">
+      <img src="c:\Users\Kristyn Moran\Downloads\WhatsApp Image 2026-09-16 at 8.53.41 PM (1).jpeg" alt="Canción 3">
+      <div><strong>Un recuerdo</strong><span>Una canción especial</span></div>
+      <div class="duration">4:02</div>
+    </div>
+    <div class="song">
+      <img src="c:\Users\Kristyn Moran\Downloads\WhatsApp Image 2026-09-16 at 8.53.41 PM.jpeg" alt="Canción 4">
+      <div><strong>Siempre nosotras</strong><span>Para cerrar la playlist</span></div>
+      <div class="duration">3:58</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PÁGINA 7 -->
+<section class="page">
+<div class="inner">
+  <h2>Sueños que nos esperan</h2>
+  <p class="subtitle">Todavía nos quedan muchísimas historias por escribir.</p>
+  <img class="photo" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.19 PM (2).jpeg" alt="Sueños y recuerdos">
+  <div class="cards">
+    <div class="card"><b>Viajes</b><p>Conocer lugares nuevos y crear recuerdos.</p></div>
+    <div class="card"><b>Risas</b><p>Seguir acumulando momentos para reír.</p></div>
+    <div class="card"><b>Metas</b><p>Ver cómo cada una alcanza sus sueños.</p></div>
+    <div class="card"><b>Aventuras</b><p>Decir sí a nuevas experiencias.</p></div>
+    <div class="card"><b>Fotos</b><p>Guardar cada etapa de nuestra historia.</p></div>
+    <div class="card"><b>Siempre</b><p>Seguir cuidando esta amistad.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- PÁGINA 8 -->
+<section class="page">
+<div class="inner">
+  <h2>Momentos especiales</h2>
+  <p class="subtitle">Pequeños instantes que hacen grande nuestra historia.</p>
+  <div class="gallery">
+    <img class="photo" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.19 PM (1).jpeg" alt="Momento 1">
+    <img class="photo" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.21 PM (4).jpeg" alt="Momento 2">
+    <img class="photo" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.21 PM.jpeg" alt="Momento 3">
+    <img class="photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.26 PM (2).jpeg" alt="Momento 4">
+  </div>
+</div>
+</section>
+
+<!-- PÁGINA 9 -->
+<section class="page">
+<div class="inner">
+  <h2>Cosas que amo de ti</h2>
+  <p class="subtitle">Porque hay personas que merecen saber lo importantes que son.</p>
+  <div class="numbered">
+    <div class="card"><div class="num">01</div><p>Tu forma de ser.</p></div>
+    <div class="card"><div class="num">02</div><p>Tu manera de hacerme reír.</p></div>
+    <div class="card"><div class="num">03</div><p>La confianza que tenemos.</p></div>
+    <div class="card"><div class="num">04</div><p>Las conversaciones interminables.</p></div>
+    <div class="card"><div class="num">05</div><p>Los recuerdos que compartimos.</p></div>
+    <div class="card"><div class="num">06</div><p>Tu manera de estar presente.</p></div>
+    <div class="card"><div class="num">07</div><p>Las risas inesperadas.</p></div>
+    <div class="card"><div class="num">08</div><p>Que podamos ser nosotras mismas.</p></div>
+    <div class="card"><div class="num">09</div><p>Todo lo que todavía nos falta vivir.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- PÁGINA 10 -->
+<section class="page">
+<div class="inner">
+  <h2>Nuestros recuerdos</h2>
+  <div class="two">
+    <div>
+      <img class="photo" src="c:\Users\Kristyn Moran\Pictures\WhatsApp Image 2026-09-16 at 6.15.20 PM.jpeg" alt="Recuerdo 1">
+      <p class="caption">Una foto, mil recuerdos.</p>
+    </div>
+    <div>
+      <img class="photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.25 PM (1).jpeg" alt="Recuerdo 2">
+      <p class="caption">Y muchos momentos todavía por vivir.</p>
+    </div>
+  </div>
+  <p class="text">Ojalá nunca dejemos de mirar atrás y sonreír por todo lo bonito que hemos vivido juntas.</p>
+</div>
+</section>
+
+<!-- PÁGINA 11 -->
+<section class="page">
+<div class="inner">
+  <h2>Para mi mejor amiga</h2>
+  <img class="photo round" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 7.08.31 PM (2).jpeg" alt="Foto de Lohanie">
+  <p class="text">Lohanie, gracias por formar parte de mi vida y por convertir tantos días normales en recuerdos especiales.</p>
+  <p class="text">Deseo que esta nueva etapa venga llena de cosas bonitas, sueños cumplidos, personas que te quieran bien y muchísimas razones para sonreír.</p>
+  <p class="text"><b>Que nunca olvides lo especial que eres. ♡</b></p>
+</div>
+</section>
+
+<!-- PÁGINA 12 -->
+<section class="page final">
+<div class="inner">
+  <div class="small">Fin de este capítulo… por ahora</div>
+  <img class="final-photo" src="c:\Users\Kristyn Moran\Pictures\Lohanie\WhatsApp Image 2026-09-16 at 6.15.27 PM (1).jpeg" alt="Foto final">
+  <h2>Feliz cumpleaños Lohanie</h2>
+  <p>Terminamos estas páginas, pero nuestra historia todavía tiene muchísimos capítulos por escribir.</p>
+  <p>Gracias por cada risa, cada recuerdo y cada momento compartido. Que este nuevo año de tu vida sea tan bonito como todos los recuerdos que todavía nos esperan. ♡</p>
+  <p class="small">Con muchísimo cariño ✨</p>
+</div>
+</section>
+
+</main>
+
+<nav class="nav">
+  <button id="prev" onclick="changePage(-1)">← Anterior</button>
+  <span class="counter" id="counter">1 / 12</span>
+  <button id="next" onclick="changePage(1)">Siguiente →</button>
+</nav>
+
+<script>
+const pages = document.querySelectorAll('.page');
+let current = 0;
+
+function showPage(index){
+  if(index < 0) index = 0;
+  if(index >= pages.length) index = pages.length - 1;
+  current = index;
+
+  pages.forEach((page,i)=>page.classList.toggle('active',i===current));
+  document.getElementById('counter').textContent = `${current+1} / ${pages.length}`;
+  document.getElementById('prev').disabled = current === 0;
+  document.getElementById('next').disabled = current === pages.length-1;
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function changePage(amount){
+  showPage(current + amount);
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key === 'ArrowRight') changePage(1);
+  if(e.key === 'ArrowLeft') changePage(-1);
+});
+
+let startX = 0;
+let endX = 0;
+
+document.addEventListener('touchstart',e=>{
+  startX = e.changedTouches[0].screenX;
+},{passive:true});
+
+document.addEventListener('touchend',e=>{
+  endX = e.changedTouches[0].screenX;
+  const distance = endX - startX;
+  if(Math.abs(distance) > 60){
+    if(distance < 0) changePage(1);
+    else changePage(-1);
+  }
+},{passive:true});
+
+showPage(0);
+</script>
+
+</body>
+</html>

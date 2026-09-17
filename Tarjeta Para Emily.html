@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Emily ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100vh;background:#922c4e;color:#6e2c2c}
+button{font:inherit}
+
+#inicio{
+  width:100%;height:100vh;height:100dvh;
+  display:flex;justify-content:center;align-items:center;
+  background:#aa8491;overflow:hidden
+}
+.sobre{
+  position:relative;width:100%;height:100%;
+  background-image:linear-gradient(rgba(170, 44, 73, 0.473),rgba(248, 59, 154, 0.384)),url("sobre.jpg");
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  cursor:pointer;overflow:hidden
+}
+.sobre:before{
+  content:"";position:absolute;inset:18px;border:1px solid rgba(239,213,157,.7);
+  box-shadow:inset 0 0 45px rgba(0,0,0,.25);pointer-events:none
+}
+.sobre:after{
+  content:"";position:absolute;width:220px;height:220px;left:50%;top:54%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,240,210,.22),transparent 70%);
+  animation:brillo 3s infinite;pointer-events:none
+}
+.contenido-sobre{
+  position:absolute;z-index:3;left:50%;top:59%;transform:translateX(-50%);
+  width:92%;text-align:center;color:white;text-shadow:0 2px 10px #000
+}
+.para-emily{font-family:"Great Vibes",cursive;font-size:clamp(48px,13vw,78px)}
+.frase-sobre{font-family:"Cormorant Garamond",serif;font-size:clamp(18px,4.8vw,23px);font-style:italic;margin:5px 0 20px}
+.toca-corazon{font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:1px}
+.corazon{display:block;font-size:45px;line-height:1;animation:latido 1.4s infinite}
+
+#carta,#final{display:none;min-height:100vh;min-height:100dvh;padding:20px 10px 40px;background:#eee9e1;justify-content:center}
+.tarjeta,.pagina-final{
+  width:100%;max-width:620px;background:#faf8f3;text-align:center;
+  padding:35px 20px 40px;box-shadow:0 10px 35px rgba(0,0,0,.2);
+  animation:aparecer .8s ease
+}
+.titulo,.titulo-galeria,.titulo-final,.nombre,.cierre{
+  font-family:"Great Vibes",cursive;font-weight:400
+}
+.titulo{font-size:clamp(50px,13vw,74px);color:#62586d;margin-bottom:22px}
+.contenedor-foto{width:88%;max-width:470px;margin:auto;position:relative}
+.foto-principal{width:100%;display:block;object-fit:cover;transform:rotate(3deg);box-shadow:0 9px 22px rgba(0,0,0,.25)}
+.nombre{font-size:clamp(40px,10vw,55px);color:#62586d;margin:32px 0 18px}
+.mensaje,.texto-final-arriba,.texto-final-abajo{
+  font-family:"Cormorant Garamond","Times New Roman",serif;
+  font-size:clamp(19px,5vw,23px);line-height:1.62
+}
+.mensaje{max-width:530px;margin:auto}
+.botones{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:32px}
+button{
+  min-width:145px;padding:12px 20px;border:1px solid #c6a86a;border-radius:6px;
+  background:linear-gradient(135deg,#5a1825,#8a3544);color:#f8ecd5;
+  font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:1px;
+  cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.18);transition:.25s
+}
+button:hover{transform:translateY(-2px)}
+button:active{transform:scale(.97)}
+
+#galeria{display:none;min-height:100vh;padding:28px 10px 45px;background:#eee9e1;text-align:center;animation:aparecer .8s ease}
+.titulo-galeria{font-size:clamp(48px,12vw,68px);color:#62586d}
+.subtitulo-galeria{font-family:"Cormorant Garamond",serif;font-size:21px;font-style:italic;color:#666;margin:4px 0 28px}
+.cuadricula{width:100%;max-width:850px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.imagen-galeria{width:100%;aspect-ratio:1;object-fit:cover;display:block;border-radius:5px;box-shadow:0 5px 14px rgba(0,0,0,.2)}
+
+#final{background:#252525;padding:0}
+.pagina-final{min-height:100vh;padding:48px 25px 40px}
+.adorno-final{font-family:"Cormorant Garamond",serif;color:#b08c54;font-size:25px;letter-spacing:8px}
+.titulo-final{font-size:clamp(50px,13vw,78px);line-height:1.05;color:#71505b;margin-top:12px}
+.subtitulo-final{font-family:"Playfair Display",serif;font-size:16px;letter-spacing:3px;line-height:1.6;color:#8b756c;margin-top:18px}
+.frase-final{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,5.5vw,28px);font-style:italic;line-height:1.5;color:#6e5b60;margin-top:38px}
+.texto-final-arriba{margin-top:45px;text-align:left}
+.foto-final{width:100%;margin-top:38px;display:block;aspect-ratio:1;object-fit:cover;filter:grayscale(100%);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.texto-final-abajo{margin-top:45px;text-align:left}
+.cierre{margin-top:45px;font-size:clamp(36px,9vw,52px);line-height:1.2;color:#71505b}
+.iniciales{margin-top:60px;font-family:"Great Vibes",cursive;font-size:clamp(65px,20vw,105px);color:#9a716e;letter-spacing:8px}
+
+@keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes brillo{0%,100%{opacity:.25;transform:translate(-50%,-50%) scale(.8)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.15)}}
+@keyframes aparecer{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+@media(min-width:700px){.cuadricula{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){
+  .contenido-sobre{top:57%}
+  .tarjeta{padding:27px 13px 34px}
+  .pagina-final{padding:45px 22px 38px}
+  button{min-width:135px;padding:11px 15px}
+}
+</style>
+</head>
+
+<body>
+
+<section id="inicio">
+  <div class="sobre" onclick="abrirCarta()">
+    <div class="contenido-sobre">
+      <div class="para-emily">Para Emily ♡</div>
+      <div class="frase-sobre">Una pequeña sorpresa hecha con muchísimo cariño.</div>
+      <div class="toca-corazon"><span class="corazon">♡</span>Toca el corazón</div>
+    </div>
+  </div>
+</section>
+
+<section id="carta">
+  <div class="tarjeta">
+    <h1 class="titulo">Happy Birthday</h1>
+
+    <div class="contenedor-foto">
+      <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto1.jpeg" class="foto-principal" alt="Foto">
+    </div>
+
+    <h2 class="nombre">Emily ♡</h2>
+
+    <p class="mensaje">
+      Feliz cumpleaños, mi corazón. Espero que la pases genial en este día tan importante
+      y que esté lleno de momentos bonitos, sonrisas y mucho cariño.
+      <br><br>
+      Te quiero con todo mi corazón y agradezco muchísimo tener una persona tan especial
+      como tú en mi vida. Gracias por cada momento, cada conversación, cada risa y por
+      todos esos recuerdos que poco a poco hemos ido construyendo.
+      <br><br>
+      Recuerda siempre que puedes contar conmigo. Pase lo que pase, siempre voy a desear
+      lo mejor para ti y voy a estar feliz de verte cumplir cada uno de tus sueños.
+      <br><br>
+      Te quiero muchísimo. ♡
+    </p>
+
+    <div class="botones">
+      <button onclick="abrirGaleria()">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="cuadricula">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto2.jpeg" class="imagen-galeria" alt="Momento 1">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto3.jpeg" class="imagen-galeria" alt="Momento 2">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto4.jpeg" class="imagen-galeria" alt="Momento 3">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto5.jpeg" class="imagen-galeria" alt="Momento 4">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto6.jpeg" class="imagen-galeria" alt="Momento 5">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto7.jpeg" class="imagen-galeria" alt="Momento 6">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto8.jpeg" class="imagen-galeria" alt="Momento 7">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto9.jpeg" class="imagen-galeria" alt="Momento 8">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto10.jpeg" class="imagen-galeria" alt="Momento 9">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto11.jpeg" class="imagen-galeria" alt="Momento 10">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto12.jpeg" class="imagen-galeria" alt="Momento 11">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto13.jpeg" class="imagen-galeria" alt="Momento 12">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto14.jpeg" class="imagen-galeria" alt="Momento 13">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto15.jpeg" class="imagen-galeria" alt="Momento 14">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto16.jpeg" class="imagen-galeria" alt="Momento 15">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto17.jpeg" class="imagen-galeria" alt="Momento 16">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto18.jpeg" class="imagen-galeria" alt="Momento 17">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto19.jpeg" class="imagen-galeria" alt="Momento 18">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto20.jpeg" class="imagen-galeria" alt="Momento 19">
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\foto21.jpeg" class="imagen-galeria" alt="Momento 20">
+  </div>
+
+  <div class="botones">
+    <button onclick="volverCarta()">← Volver</button>
+    <button onclick="abrirFinal()">Siguiente →</button>
+  </div>
+</section>
+
+<section id="final">
+  <div class="pagina-final">
+    <div class="adorno-final">✦ ♡ ✦</div>
+
+    <h1 class="titulo-final">Para mi persona favorita</h1>
+
+    <h2 class="subtitulo-final">
+      MI MEJOR AMIGA<br>EMILY ♡
+    </h2>
+
+    <p class="frase-final">
+      “Hay amistades que se convierten en pequeños hogares para el corazón.”
+    </p>
+
+    <p class="texto-final-arriba">
+      Emily, quiero que sepas que tenerte como mi mejor amiga es uno de esos regalos
+      que la vida entrega sin avisar.
+      <br><br>
+      Hay personas que llegan y simplemente pasan, pero también existen aquellas que
+      llegan para dejar recuerdos, enseñanzas y momentos que se quedan para siempre.
+      Tú eres una de esas personas para mí.
+      <br><br>
+      Gracias por cada risa que hemos compartido, por cada conversación, por escucharme,
+      por acompañarme y por todos esos pequeños momentos que quizás parecen simples,
+      pero que para mí significan muchísimo.
+    </p>
+
+    <img src="c:\Users\Kristyn Moran\Pictures\Camera Roll\final.jpeg" class="foto-final" alt="Nuestro recuerdo">
+
+    <p class="texto-final-abajo">
+      Quiero que nunca olvides lo especial que eres. Espero que la vida te permita
+      cumplir cada sueño que guardas en tu corazón y que nunca te falten razones
+      para sonreír.
+      <br><br>
+      Y si algún día miramos hacia atrás, espero que podamos recordar todas estas
+      etapas con una sonrisa y decir: “Mira todo lo que vivimos juntas.”
+      <br><br>
+      No sé qué caminos tomaremos con el paso de los años, pero sí sé que siempre
+      voy a guardar con muchísimo cariño esta amistad y todos los recuerdos que hemos creado.
+      <br><br>
+      Gracias por ser tú. Gracias por ser mi amiga. Y gracias por formar parte de mi historia.
+    </p>
+
+    <div class="cierre">
+      Te quiero muchísimo,<br>mi mejor amiga. ♡
+    </div>
+
+    <div class="iniciales">E ♡ </div>
+
+    <div class="botones">
+      <button onclick="volverGaleria()">← Volver</button>
+    </div>
+  </div>
+</section>
+
+<script>
+function ocultarTodo(){
+  document.getElementById("inicio").style.display="none";
+  document.getElementById("carta").style.display="none";
+  document.getElementById("galeria").style.display="none";
+  document.getElementById("final").style.display="none";
+}
+function arriba(){window.scrollTo({top:0,behavior:"instant"})}
+function abrirCarta(){ocultarTodo();document.getElementById("carta").style.display="flex";arriba()}
+function abrirGaleria(){ocultarTodo();document.getElementById("galeria").style.display="block";arriba()}
+function volverCarta(){ocultarTodo();document.getElementById("carta").style.display="flex";arriba()}
+function abrirFinal(){ocultarTodo();document.getElementById("final").style.display="flex";arriba()}
+function volverGaleria(){ocultarTodo();document.getElementById("galeria").style.display="block";arriba()}
+</script>
+
+</body>
+</html>
